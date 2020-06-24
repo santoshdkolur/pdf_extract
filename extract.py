@@ -7,7 +7,8 @@ import os
 import pdf2image
 import shutil
 
-pytesseract.pytesseract.tesseract_cmd = r"D:Tesseract-OCR/tesseract.exe"     #Set to your installation path
+#Uncomment the below line when using it on windows.
+#pytesseract.pytesseract.tesseract_cmd = r"D:Tesseract-OCR/tesseract.exe"     #Set to your installation path
 
 while(True):
 	file=input("Enter the filename with the extension. Ex: ocr.pdf\n")
