@@ -5,12 +5,22 @@ import cv2
 from PIL import Image
 import os
 import pdf2image
+import shutil
 
-file=input("Enter the filename with the extension. Ex: ocr.pdf\n")
+pytesseract.pytesseract.tesseract_cmd = r"D:Tesseract-OCR/tesseract.exe"     #Set to your installation path
+
+while(True):
+	file=input("Enter the filename with the extension. Ex: ocr.pdf\n")
+	if(file in os.listdir()):
+		break;
+	else:
+		print("File not found! Try again.")
+
 pages = pdf2image.convert_from_path(file, 300,grayscale=True) 
 
 #Converting the pages of the pdf to images.
-os.mkdir('PDF_images')
+if('PDF_images' not in os.listdir()):
+	os.mkdir('PDF_images')
 #Keep a counter to store the images
 image_counter = 1
 for page in pages: 
@@ -20,7 +30,12 @@ for page in pages:
     image_counter = image_counter + 1
 
 #Extracting text from the pages
-os.mkdir('Output')
+if('Output' in os.listdir()):
+	shutil.rmtree('Output')
+	os.mkdir('Output')
+else:
+	os.mkdir('Output')
+
 flimit=image_counter      #flimit is greater than total number of images by 1
 for i in range(1,flimit):
     print("Extracting => Page "+str(i))
