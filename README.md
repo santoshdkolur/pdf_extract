@@ -3,15 +3,15 @@ Extracts data from pdfs if the data is in the form of images/texts.
 The extracted data is stored as a seperate text file for everypage.
 
 Use Group_extract.py to extract from multiple pdfs by providing the path as a command line argument or as an input. 
-'''
+```
 python Group_extract.py D:/PDFS
-'''
+```
 
 or
 
-'''
+```
 python Group_extract.py
-'''
+```
 
 
 The program usues pytesseract and pdf2image python libraries. \
