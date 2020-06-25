@@ -7,7 +7,7 @@ import os,sys
 import pdf2image
 import shutil
 
-pytesseract.pytesseract.tesseract_cmd = r"D:Tesseract-OCR/tesseract.exe"     #Set to your installation path
+#pytesseract.pytesseract.tesseract_cmd = r"D:Tesseract-OCR/tesseract.exe"     #Set to your installation path
 
 if('Output' not in os.listdir()):
         os.mkdir('Output')
@@ -55,7 +55,7 @@ for file in pdfs:
         os.mkdir('Output/'+fdir)
 
     flimit=image_counter      #flimit is greater than total number of images by 1s
-    print("FILE:"+ file)
+    print("\nFILE:"+ file +"\n")
     for i in range(1,flimit):
         print("Extracting => Page "+str(i))
         o_fname="Output/"+fdir+"/page_"+str(i)+".txt"
